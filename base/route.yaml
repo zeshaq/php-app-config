@@ -1,0 +1,11 @@
+# This exposes your service to the outside world.
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: php-app
+spec:
+  to:
+    kind: Service
+    name: php-app
+  port:
+    targetPort: 8080

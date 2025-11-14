@@ -1,0 +1,10 @@
+# This defines the 'uat' environment.
+# It uses the 'base' and adds a 'uat-' prefix to all resources.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: php-app-uat
+resources:
+  - ../base
+
+# Adds a prefix to all created resources (e.g., 'uat-php-app')
+namePrefix: uat-

@@ -1,0 +1,12 @@
+# This defines the 'prod' environment.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: php-app-prod
+resources:
+  - ../base
+
+# We'll set replicas to 2 for production
+replicas:
+  - name: php-app
+    count: 2
+

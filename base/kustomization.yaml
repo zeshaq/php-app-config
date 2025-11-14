@@ -1,0 +1,5 @@
+# This file tells Kustomize what resources to manage.
+resources:
+  - deployment.yaml
+  - service.yaml
+  - route.yaml

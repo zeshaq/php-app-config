@@ -1,0 +1,25 @@
+# This is the template for your application.
+# Notice the image path: it points to the ImageStream we will create.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-app
+  labels:
+    app: php-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: php-app
+  template:
+    metadata:
+      labels:
+        app: php-app
+    spec:
+      containers:
+        - name: php-app
+          # This is the critical part. It points to the internal OpenShift
+          # ImageStream that our pipeline will build.
+          image: image-registry.openshift-image-registry.svc:5000/php-app-project/php-app:latest
+          ports:
+            - containerPort: 8080
